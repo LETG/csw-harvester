@@ -21,7 +21,7 @@ The PostgreSQL database must first be created. A database dump is provided with 
 
 The host, port, database name, schema, user and password must be set in csw-harvester.py.
 
-The list of CSW is read from a CSV file ; an example is provided with sources-csw.csv
+The list of CSW is read from a CSV file ; an example is provided with sources-csw.csv. For each CSW, you can set a begin and an end record, and the number of records extracted with each step (for example, if set at 30, records will be extracted 30 by 30). Lines can be commented with #
 
 You can then run the python script csw-harvester.py with the following options :
 
