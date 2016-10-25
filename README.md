@@ -17,7 +17,9 @@ This script is used to analyze Spatial Data Infrastructures for the GEOBS resear
 
 ##How to run
 
-The PostgreSQL database must first be created. A database dump is provided with csw_harvester.sql
+The PostgreSQL database must first be created. A database dump is provided with database/csw_harvester.sql
+
+![Physical Data Model](/database/MPD_csw_harvester.png)
 
 The host, port, database name, schema, user and password must be set in csw-harvester.py.
 
