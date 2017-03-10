@@ -23,7 +23,7 @@ The PostgreSQL database must first be created. A database dump is provided with 
 
 The host, port, database name, schema, user and password must be set in csw-harvester.py.
 
-The list of CSW is read from a CSV file ; an example is provided with sources-csw.csv. For each CSW, you can set a begin and an end record, and the number of records extracted with each step (for example, if set at 30, records will be extracted 30 by 30). Lines can be commented with #
+The CSW list is read from a CSV file ; an example is provided with sources-csw.csv. For each CSW, you can set a start in each step (for example, if set at 30, records will be extracted 30 by 30). Lines can be commented with #
 
 You can then run the python script csw-harvester.py with the following options :
 
@@ -37,9 +37,9 @@ You can then run the python script csw-harvester.py with the following options :
   
 - -d DATE, --date=DATE  Extraction date
 
-The completion mode (true by default) allows you to run another iteration of the script without overwriting the data already stored in the database. It's useful if for example one CSW stopped working after a given record and you want to start again from this record.
+The completion mode (true by default) is used to run another iteration of the script without overwriting the data already stored in the database. This is useful if for example one CSW stopped working after a given record and you want to start again from this record.
 
-The date option allows you to force the extraction date stored in the database, if for example you're using the completion mode and want the extraction date to be the same for all metadata.
+The date option is used to force the extraction date stored in the database, if - for example - you are using the completion mode and want the extraction date to be the same for all metadata.
 
 ##License
 
