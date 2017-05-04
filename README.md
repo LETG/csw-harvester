@@ -1,21 +1,21 @@
 # csw-harvester
 
-##Synopsis
+## Synopsis
 
 This is a python script that harvests metadata from CSW web services and saves some information from these metadata in a postgreSQL database.
 
-##Motivation
+## Motivation
 
 This script is used to analyze Spatial Data Infrastructures for the GEOBS research project : https://www-iuem.univ-brest.fr/pops/projects/geobs.
 
-##Dependencies
+## Dependencies
 
 - psycopg2 : PostgreSQL database adapter for Python, https://pypi.python.org/pypi/psycopg2
 - OWSlib : Python package for client programming with Open Geospatial Consortium (OGC) web service (hence OWS) interface standards, https://github.com/geopython/OWSLib
 - OWSlib requires elementtree (standard in 2.5 as xml.etree) or lxml
 - PostgreSQL
 
-##How to run
+## How to run
 
 The PostgreSQL database must first be created. A database dump is provided with database/csw_harvester.sql
 
@@ -41,7 +41,7 @@ The completion mode (true by default) is used to run another iteration of the sc
 
 The date option is used to force the extraction date stored in the database, if - for example - you are using the completion mode and want the extraction date to be the same for all metadata.
 
-##License
+## License
 
 This project is published under the General Public License v3.
 
