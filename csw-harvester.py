@@ -92,7 +92,7 @@ parser.add_option("-l", "--log-file", dest="log_file",
                   action="store", default=LOG_FILE,
                   help="LOG file")
 parser.add_option("-c", "--completion", dest="completion",
-                  action="store_true", default=True,
+                  action="store_true", default=False,
                   help="completion mode")
 parser.add_option("-d", "--date", dest="date",
                   action="store", default=date,
@@ -160,9 +160,8 @@ def get_records(num, name, begin_record, end_record, MAXR, url, url_csw):
     # pour les mettre dans un dico
     csw_records = csw.records
     # si on est en mode "complétion" : il ne doit pas y avoir de doublons au niveau des id longs de md
-    if completion == True:
-        print 'true'
-        check_id_md(csw_records, num)
+    if completion == True:        
+        check_id_md(csw_records, num, options.date)
     # si end_record est spécifié et possible, on le prend en compte :
     if end_record and end_record < csw.results['matches'] :
         getMATCHES = end_record
@@ -206,7 +205,7 @@ def get_records(num, name, begin_record, end_record, MAXR, url, url_csw):
         csw_records = csw.records
         # si on est en mode "complétion" : il ne doit pas y avoir de doublons au niveau des id longs de md
         if completion == True:
-            check_id_md(csw_records, num)
+            check_id_md(csw_records, num, options.date)
         logger.info('matches %s (from %s to %s) ; first record %s ; nextrecord %s ; returned %s' % (getMATCHES-begin_record+1, begin_record, getMATCHES, queries['startposition'], csw.results['nextrecord'], csw.results['returned']))
         # création du dico vide pour stocker les valeurs
         dico_bdd = create_dico_bdd()
@@ -324,8 +323,8 @@ def get_value_resp(dico_values, bigliste, type_contact, id_yes):
             id_responsibleparty+=1
 
 
-# vérifie si l'identifiant long de la md est déjà dans la base pour une idg
-def check_id_md(csw_records, id_sdi):
+# vérifie si l'identifiant long de la md est déjà dans la base pour une idg et une même date
+def check_id_md(csw_records, id_sdi, date_extraction):
 
     # list of future ids
     future_ids = csw_records.keys()
@@ -335,7 +334,9 @@ def check_id_md(csw_records, id_sdi):
     con = psycopg2.connect("host=" + host + " port=" + port + " dbname=" + dbname + " user=" + user + " password=" + password)
 #    con = psycopg2.connect("dbname=" + dbname + " user=" + user + " password=" + password)
     cur = con.cursor()
-    query = 'select metadata.identifier from ' + schema + '.metadata, ' + schema + '.sdi, '  + schema + '.extraction where metadata.id_metadata = extraction.id_metadata and extraction.id_sdi = sdi.id_sdi and sdi.id_sdi = ' + id_sdi + ';'
+    query = 'select metadata.identifier from ' + schema + '.metadata, ' + schema + '.sdi, '  \
+    + schema + '.extraction where metadata.id_metadata = extraction.id_metadata and extraction.id_sdi = sdi.id_sdi and sdi.id_sdi = ' \
+    + id_sdi + " and extraction.date_extraction='" + date_extraction + "';"
     cur.execute(query)
     current_ids = [record[0] for record in cur]
     cur.close()
@@ -392,6 +393,7 @@ def get_value_list(values, liste, path, nb_max_char):
 def fill_db(dico_values):
     con = None
     con = psycopg2.connect("host=" + host + " port=" + port + " dbname=" + dbname + " user=" + user + " password=" + password)
+#    con = psycopg2.connect("dbname=" + dbname + " user=" + user + " password=" + password)
     cur = con.cursor()
     list_table = ['sdi','metadata','extraction','dataidentification','geographicboundingbox','keyword','responsibleparty','contact']
     for table in list_table:
