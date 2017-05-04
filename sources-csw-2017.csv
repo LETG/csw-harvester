@@ -27,7 +27,7 @@
 27,MIPYGeo,0,0,30,http://catalogue.mipygeo.fr/,http://catalogue.mipygeo.fr/geonetwork/srv/fre/csw
 28,PEGASE,0,0,30,http://catalogue.pegase-poitou-charentes.fr/,http://catalogue.pegase-poitou-charentes.fr/geonetwork/srv/fre/csw
 29,PEIGEO,0,0,30,http://www.peigeo.re/,http://www.peigeo.re/geonetwork/srv/fre/csw
-30,PIGMA,0,0,30,http://ids.pigma.org/,http://ids.pigma.org/geonetwork/srv/eng/csw
+30,PIGMA,0,0,30,https://www.pigma.org/,https://www.pigma.org/geonetwork/srv/eng/csw
 31,CIGEO,0,0,1,http://infogeo.ct-corse.fr/,http://infogeo.ct-corse.fr/geoportal/csw
 32,PPIGE,0,0,30,http://api.isogeo.com/,http://api.isogeo.com/services/ows/s/3f5cb018fe4e48dcac7f6039acd01962/c/cd8aeeede5324b54900264d6c5987d04/ZKyGZvBoeonP1vIzCeAAwJqDc4HifEMRC2fH4sTg4dRh6cy4A5G9JC?
 33,georep,0,0,30,http://www.geoportal.gouv.nc/,http://www.geoportal.gouv.nc/geoportal/csw
