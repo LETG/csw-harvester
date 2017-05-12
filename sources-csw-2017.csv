@@ -32,7 +32,7 @@
 39,georep,0,30,30,http://www.geoportal.gouv.nc/,http://www.geoportal.gouv.nc/geoportal/csw
 40,SIGLR,0,30,30,http://geocatalogue.siglr.org/,http://geocatalogue.siglr.org/geonetwork/srv/fr/csw
 43,SIGLOIRE,0,30,30,http://catalogue.sigloire.fr/,http://catalogue.sigloire.fr/geonetwork/srv/fre/csw
-44,SIGOGNE,0,30,30,http://www.sigogne.org,http://www.sigogne.org:8080/geosource/srv/fre/csw1
+44,SIGOGNE,0,30,30,http://www.sigogne.org,http://www.sigogne.org:8080/geosource/srv/fre/csw
 45,GeoMartinique,0,30,30,http://www.geomartinique.fr,http://www.geomartinique.fr/geonetwork/srv/fre/csw
 46,Karugeo,0,30,30,http://www.karugeo.fr,http://www.karugeo.fr/geonetwork/srv/fre/csw
 47,IDeOBFC,0,0,30,http://catalogue.ideobfc.fr,http://catalogue.ideobfc.fr/geonetwork/srv/fre/csw
